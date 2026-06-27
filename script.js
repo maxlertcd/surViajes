@@ -3,7 +3,7 @@
             const listImages=["cataratas.jpg","machu-picchu.jpg","perito_moreno.jpg","roquez.jpg","tatacoa.jpg","titicaca.jpg"];
             const index=Math.floor(Math.random() * listImages.length);
             const selectedImage=listImages[index];
-            const imagePath="blob/main/"+selectedImage;
+            const imagePath="main/"+selectedImage;
             document.body.style.backgroundImage= `url('${imagePath}')`;
             //mostrar descripcion de la imagen
             const description= getDescription(index);
