@@ -2,9 +2,12 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+
+    <!-- Corregido viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>surviajes.com</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,8 +21,51 @@
         <p id="description"></p>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        window.addEventListener("load", changeBackground);
+
+        function changeBackground() {
+            const listImages = [
+                "cataratas.jpg",
+                "machu-picchu.jpg",
+                "perito_moreno.jpg",
+                "roquez.jpg",
+                "tatacoa.jpg",
+                "titicaca.jpg"
+            ];
+
+            const index = Math.floor(Math.random() * listImages.length);
+            const selectedImage = listImages[index];
+
+            // Corregido: sin carpeta images/
+            const imagePath = selectedImage;
+
+            document.body.style.backgroundImage = `url('${imagePath}')`;
+
+            // Mostrar descripción
+            const description = getDescription(index);
+            document.getElementById("description").textContent = description;
+        }
+
+        function getDescription(idx) {
+            switch (idx) {
+                case 0:
+                    return "Cataratas del Iguazú, Argentina";
+                case 1:
+                    return "Machu Picchu, Perú";
+                case 2:
+                    return "Glaciar Perito Moreno, Argentina";
+                case 3:
+                    return "Parque Nacional El Roquez, Venezuela";
+                case 4:
+                    return "Desierto de la Tatacoa, Colombia";
+                case 5:
+                    return "Lago Titicaca, Bolivia";
+                default:
+                    return "Destino desconocido";
+            }
+        }
+    </script>
 
 </body>
-
 </html>
